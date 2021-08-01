@@ -94,7 +94,7 @@ public class RockPaperScissorsTests {
     @Test
     public void winMessageDraw() {
         String result = testGame.winMessage("Draw");
-        assertEquals("It's a draw", result);
+        assertEquals("It's a draw.", result);
     }
 
     @Test

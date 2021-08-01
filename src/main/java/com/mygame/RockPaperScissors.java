@@ -67,10 +67,7 @@ public class RockPaperScissors {
     }
 
     public boolean validPlayCheck(String choice) {
-        if(PLAYS.contains(choice)){
-            return true;
-        }
-        return false;
+        return PLAYS.contains(choice);
 
     }
 
@@ -104,16 +101,19 @@ public class RockPaperScissors {
 
     public String winMessage(String winner) {
         gameNumber++;
+        String draw = "It's a draw.";
+        String player = "Player wins!";
+        String cpu = "CPU wins!";
 
         if(winner.equals(OUTCOMES.get(0))) {
             numOfDraws++;
-            return "It's a draw";
+            return draw;
         } else if(winner.equals(OUTCOMES.get(2))) {
             playerWins++;
-            return "Player wins!";
+            return player;
         } else {
             cpuWins++;
-            return "CPU wins!";
+            return cpu;
         }
     }
 
