@@ -33,8 +33,8 @@ public class RockPaperScissorsTests {
 
     @Test
     public void playShouldReturnInvalid() {
-        String result = testGame.play("lock", "Chrissy");
-        assertEquals("Chrissy: Invalid play", result);
+        String result = testGame.play("lock");
+        assertEquals("null: Invalid play", result);
     }
 
     @Test

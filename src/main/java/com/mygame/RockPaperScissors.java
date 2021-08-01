@@ -31,7 +31,7 @@ public class RockPaperScissors {
             System.out.printf("************\nMake your play:\n");
             userInput = keyboard.next();
 
-            System.out.println(play(userInput, playerName));
+            System.out.println(play(userInput));
 
             System.out.printf("%s, would you like to play again? (y/n)\n",
                     playerName);
@@ -43,7 +43,7 @@ public class RockPaperScissors {
 
     }
 
-    public String play(String userInput, String userName) {
+    public String play(String userInput) {
         String playerChoice = userInput.toLowerCase();
 
         if(validPlayCheck(playerChoice)) {
@@ -62,7 +62,7 @@ public class RockPaperScissors {
             return winMessage(winner);
         }
 
-        return userName + ": Invalid play";
+        return playerName + ": Invalid play";
 
     }
 
