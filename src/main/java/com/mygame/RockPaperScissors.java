@@ -12,6 +12,9 @@ public class RockPaperScissors {
     private String userInput;
     private String playerName;
     private char playAgain;
+    private int cpuWins = 0;
+    private int playerWins = 0;
+    private int numOfDraws = 0;
 
 
     public void start() {
@@ -46,8 +49,12 @@ public class RockPaperScissors {
         if(validPlayCheck(playerChoice)) {
             String cpuChoice = PLAYS.get(randomChoice);
 
-            System.out.printf("\nGAME: %d\nCPU played: %s\n",
+            System.out.printf("\nGAME: %d\n%s's wins: %d CPU wins: %d Draws: %d\nCPU played: %s\n",
                     gameNumber,
+                    playerName,
+                    playerWins,
+                    cpuWins,
+                    numOfDraws,
                     cpuChoice);
 
             String winner = pickWinner(playerChoice, cpuChoice);
@@ -99,10 +106,13 @@ public class RockPaperScissors {
         gameNumber++;
 
         if(winner.equals(OUTCOMES.get(0))) {
+            numOfDraws++;
             return "It's a draw";
         } else if(winner.equals(OUTCOMES.get(2))) {
+            playerWins++;
             return "Player wins!";
         } else {
+            cpuWins++;
             return "CPU wins!";
         }
     }
