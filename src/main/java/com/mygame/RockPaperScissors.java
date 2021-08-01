@@ -33,7 +33,11 @@ public class RockPaperScissors {
 
             System.out.println(play(userInput));
 
-            System.out.printf("%s, would you like to play again? (y/n)\n",
+            System.out.printf("%s's wins: %d | CPU wins: %d | Draws: %d\n%s, would you like to play again? (y/n)\n",
+                    playerName,
+                    playerWins,
+                    cpuWins,
+                    numOfDraws,
                     playerName);
 
             playAgain = keyboard.next().toLowerCase().charAt(0);
@@ -49,12 +53,8 @@ public class RockPaperScissors {
         if(validPlayCheck(playerChoice)) {
             String cpuChoice = PLAYS.get(randomChoice);
 
-            System.out.printf("\nGAME: %d\n%s's wins: %d CPU wins: %d Draws: %d\nCPU played: %s\n",
+            System.out.printf("\nGAME: %d\nCPU played: %s\n",
                     gameNumber,
-                    playerName,
-                    playerWins,
-                    cpuWins,
-                    numOfDraws,
                     cpuChoice);
 
             String winner = pickWinner(playerChoice, cpuChoice);
