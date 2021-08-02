@@ -51,10 +51,8 @@ public class RockPaperScissors {
         String playerChoice = userInput.toLowerCase();
 
         if(validPlayCheck(playerChoice)) {
-            //create random int here?
             randomChoice = random.nextInt(3);
             String cpuChoice = PLAYS.get(randomChoice);
-            System.out.println(randomChoice);
 
             System.out.printf("\nGAME: %d\nCPU played: %s\n",
                     gameNumber,
