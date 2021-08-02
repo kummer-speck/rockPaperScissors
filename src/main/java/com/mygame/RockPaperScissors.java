@@ -8,7 +8,7 @@ public class RockPaperScissors {
     private final List<String> OUTCOMES = new ArrayList<>(Arrays.asList("Draw", "CPU", "Player"));
     private final Random random = new Random();
     private int gameNumber = 1;
-    private int randomChoice = random.nextInt(3);
+    private int randomChoice;
     private String userInput;
     private String playerName;
     private char playAgain;
@@ -51,7 +51,10 @@ public class RockPaperScissors {
         String playerChoice = userInput.toLowerCase();
 
         if(validPlayCheck(playerChoice)) {
+            //create random int here?
+            randomChoice = random.nextInt(3);
             String cpuChoice = PLAYS.get(randomChoice);
+            System.out.println(randomChoice);
 
             System.out.printf("\nGAME: %d\nCPU played: %s\n",
                     gameNumber,
@@ -102,15 +105,27 @@ public class RockPaperScissors {
     public String winMessage(String winner) {
         gameNumber++;
         String draw = "It's a draw.";
-        String player = "Player wins!";
+        String player = "Player wins!\n";
         String cpu = "CPU wins!";
+        String winGraphic = "                                   .''.       \n" +
+                "       .''.      .        *''*    :_\\/_:     . \n" +
+                "      :_\\/_:   _\\(/_  .:.*_\\/_*   : /\\ :  .'.:.'.\n" +
+                "  .''.: /\\ :   ./)\\   ':'* /\\ * :  '..'.  -=:o:=-\n" +
+                " :_\\/_:'.:::.    ' *''*    * '.\\'/.' _\\(/_'.':'.'\n" +
+                " : /\\ : :::::     *_\\/_*     -= o =-  /)\\    '  *\n" +
+                "  '..'  ':::'     * /\\ *     .'/.\\'.   '\n" +
+                "      *            *..*         :\n" +
+                "        *\n" +
+                "        *\n";
+
+
 
         if(winner.equals(OUTCOMES.get(0))) {
             numOfDraws++;
             return draw;
         } else if(winner.equals(OUTCOMES.get(2))) {
             playerWins++;
-            return player;
+            return player + winGraphic;
         } else {
             cpuWins++;
             return cpu;
